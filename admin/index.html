@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolf Chalet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+
+    <style>
+          .custom-menu-btn {
+            border: 2px solid white;
+            border-radius: 999px;
+            padding: 6px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: transparent;
+            color: white;
+        }
+
+            .custom-menu-btn .circle-icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        .offcanvas-custom {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .menu-section-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f4f4f4;
+            padding: 10px 15px;
+            border-radius: 30px;
+            margin-bottom: 5px;
+        }
+
+      
+        #contact-toggle:hover + #contact-submenu {
+            display: block !important;
+        }
+   
+
+    .submenu {
+    padding-left: 35px;
+    margin-bottom: 15px;
+    }
+    .submenu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 3px 0;
+    }
+    .offcanvas-header .btn-close {
+    background-color: #000;
+    border-radius: 50%;
+    padding: 10px;
+    }
+    .zoom-bg {
+    animation: zoomInOut 50s ease-in-out infinite;
+    transform-origin: center;
+    }
+    @keyframes zoomInOut {
+    0% { transform: scale(0.9); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(0.9); }
+    }
+    .scrolling-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #2f4f1e;
+    text-align: center;
+    }
+
+    .fade-in {
+    opacity: 1 !important;
+    transform: translateY(0px) !important;
+    transition: all 0.8s ease;
+    }
+    [data-scroll][data-scroll-class] {
+    opacity: 0;
+    transform: translateY(40px);
+    }
+    .menu-section-title:hover,
+    .submenu a:hover {
+    background-color: #d1e7dd; /* un verde pal discret */
+    color: #1c4125 !important; /* text mai închis */
+    border-radius: 20px;
+    padding-left: 10px;
+    transition: all 0.3s ease-in-out;
+    }
+
+    .submenu a {
+    transition: all 0.3s ease;
+    padding: 3px 5px;
+    border-radius: 12px;
+    }
+    .custom-close {
+    background-color: transparent;
+    background-image: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: black;
+    border: none;
+    position: relative;
+    }
+
+    .custom-close::before {
+    content: '✕';
+    color: #333;
+    font-weight: bold;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    </style>
+</head>
+<body data-scroll-container>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="images/logo.jpeg" alt="Wolf Chalet Logo" style="height: 40px;">
+                <span class="fw-bold text-white">Wolf Chalet</span>
+            </a>
+            <button class="custom-menu-btn" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
+                <span>Meniu</span>
+                <div class="circle-icon">
+                    <i class="fas fa-bars text-dark"></i>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Offcanvas Menu -->
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Wolf Chalet</h5>
+            <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Închide"></button>
+
+        </div>
+        <div class="offcanvas-body">
+
+            <!-- ACASA -->
+            <div class="menu-section-title">
+                <i class="fas fa-home"></i>
+                <a href="index.html" class="text-dark text-decoration-none">ACASĂ</a>
+            </div>
+
+            <!-- SERVICII -->
+            <div class="menu-section-title"><i class="fas fa-briefcase"></i> SERVICII</div>
+            <div class="submenu">
+                <a href="atractii_turistice.html">Atracții turistice</a>
+                <a href="cazare.html">Cazare</a>
+            </div>
+
+           
+
+            <!-- CONTACT cu submeniu -->
+            <div class="menu-section-title position-relative" id="contact-toggle" style="cursor: pointer;">
+                <i class="fas fa-at"></i>
+                <span class="text-dark text-decoration-none">CONTACT</span>
+            </div>
+            <div class="submenu" id="contact-submenu">
+                <a href="contact.html">Date de contact</a>
+                <a href="rezervari.php">Rezervări</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="text-white text-center d-flex align-items-center justify-content-center position-relative" style="height: 100vh; overflow: hidden; background-color: #4d7a34;">
+        <img src="images/cabanamoeciu.jpeg" alt="Wolf Chalet" class="position-absolute w-100 h-100 zoom-bg" style="object-fit: cover; z-index: 1;">
+        <div class="container position-relative" style="z-index: 2;">
+            <h1 class="display-2 fw-bold mb-3 text-shadow" style="color:#228B22;">Wolf Chalet</h1>
+            <p class="lead mb-4" style="color:#228B22;">Cabana ta premium din Moieciu de Sus</p>
+            <a href="rezervari.php" class="btn btn-outline-light btn-lg" style="color:#228B22;">Rezervă acum</a>
+        </div>
+    </section>
+
+    <!-- Despre -->
+    <section class="py-5" id="despre">
+        <div class="container">
+            <h2 class="text-center mb-4" data-scroll data-scroll-speed="1">Despre <span class="text-success">Wolf Chalet</span></h2>
+            <div data-scroll data-scroll-direction="vertical" data-scroll-speed="2" data-scroll-class="fade-in">
+                <p>🏔️ Arhitectura montană din lemn și piatră, împreună cu aerul curat, fac din Wolf Chalet un loc ideal pentru relaxare. Bucură-te de jacuzzi, masaj și seri liniștite pe terasă.</p>
+                <p>🚴‍♂️ Activitățile din zonă includ drumeții, ciclism, bob, tiroliană, cules de fructe de pădure și multe altele.</p>
+                <p>🥘 Gustă preparatele tradiționale locale din restaurantele din Moieciu sau direct din gospodăriile sătești.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Facilități -->
+    <section class="container py-5">
+        <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-2" class="scrolling-title">
+            Facilități principale
+        </h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="p-3 rounded shadow-sm bg-white text-center h-100 d-flex align-items-center justify-content-center">
+                    🛌 <span class="ms-2">4 Dormitoare cu baie privată</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="p-3 rounded shadow-sm bg-white text-center h-100 d-flex align-items-center justify-content-center">
+                    🧘‍♂️ <span class="ms-2">Jacuzzi interior/exterior</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="p-3 rounded shadow-sm bg-white text-center h-100 d-flex align-items-center justify-content-center">
+                    🔍 <span class="ms-2">Bucătărie complet utilată</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="p-3 rounded shadow-sm bg-white text-center h-100 d-flex align-items-center justify-content-center">
+                    📶 <span class="ms-2">WiFi, TV, încălzire în pardoseală</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5 text-center text-white" style="background-color: #4d7a34;">
+        <div class="container">
+            <h3 class="mb-3">Pregătit de o vacanță de vis?</h3>
+            <p class="mb-3">Verifică disponibilitatea și rezervă-ți locul în inima munților.</p>
+            <a href="rezervari.php" class="btn btn-light">Rezervări</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <img src="images/logo.jpeg" alt="Wolf Chalet Logo" style="height: 40px;">
+            <p class="mt-6 mb-2 fs-7"> <svg class="me-1" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 0a6 6 0 0 0-6 6c0 4.222 5.34 9.367 5.653 9.683a.5.5 0 0 0 .694 0C8.66 15.367  14 10.221 14 6a6 6 0 0 0-6-6zm0   8a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
+                                        </svg>Adresă: Moieciu de Sus 56, Jud. Brașov, Romania</p>
+            <p class="mb-1 fs-7"> <svg xmlns="http://www.w3.org/2000/svg"
+     width="20" height="20"
+     fill="currentColor"
+     viewBox="0 0 24 24">
+    <path d="M6.62 10.79
+           a15.053 15.053 0 0 0 6.59 6.59  l2.2-2.2 a1 1 0 0 1 1.11-.21  c1.2.5 2.5.77 3.86.77  a1 1 0 0 1 1 1V20 c0 .55-.45 1-1 1  C9.16 21 3 14.84 3 6 c0-.55.45-1 1-1h3.5  a1 1 0 0 1 1 1  c0 1.36.27 2.66.77 3.86   a1 1 0 0 1-.21 1.11 l-2.2 2.2z" />
+</svg> Telefon: (+40)752682470 / (+40)765215144</p>
+            <p class="mb-4 fs-7">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="20" height="20"
+                     fill="currentColor"
+                     viewBox="0 0 24 24">
+                    <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16
+           c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4
+           l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg> E-mail: hellowolfchalet@gmail.com
+            </p>
+        </div>
+    </footer>
+
+
+ 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector("[data-scroll-container]"),
+            smooth: true
+        });
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+
+
+
+</body>
+</html>
