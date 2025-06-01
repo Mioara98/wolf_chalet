@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Admin Login</title>
-  <link rel="stylesheet" href="css/style.css"> <!-- ← CORESPUNDE STRUCTURII TALE -->
+  <link rel="stylesheet" href="style.css"> <!-- ← CORESPUNDE STRUCTURII TALE -->
 </head>
 <body class="login-page">
 
